@@ -12,7 +12,7 @@ public class GravityController : MonoBehaviour {
 	/// <summary>
 		/// Causes the force to ignore mass and accelerate at the given force rate.
 		/// </summary>
-//	public bool accelerate = false;
+	public bool accelerate = false;
 //	public Vector3 tor = Vector3.zero; 
 //	public float sleepVelocity = 0.01f;
 
@@ -39,8 +39,15 @@ public class GravityController : MonoBehaviour {
 		RotateObject ();
 		if (Input.GetKeyUp (KeyCode.Space)) {
 						isFlipping = true; 
+		}
+
+		ForceMode mode = accelerate ? ForceMode.Acceleration : ForceMode.Force;
+		if (relative) {
+						rigidbody.AddRelativeForce (force, mode);
+				} else {
+						rigidbody.AddForce (force, mode);
 				}
-		/*
+			/*
 		float rotationAmt = rotateSpeed * Time.deltaTime;
 		if (rotation == targetRotation)
 			isFlipping = false;
