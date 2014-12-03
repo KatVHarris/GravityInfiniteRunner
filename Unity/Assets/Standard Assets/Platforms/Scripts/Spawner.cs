@@ -45,21 +45,41 @@ public class Spawner : MonoBehaviour {
 	}
 	
 	public void RemoveBottomPlatform(GameObject gobj){
-		this.activeBottomPlatforms.Remove (gobj);
-		GameObject.Destroy (gobj);
+		if (gobj.gameObject.transform.parent) {
+			this.activeBottomPlatforms.Remove (gobj.gameObject.transform.parent.gameObject);
+			GameObject.Destroy (gobj.gameObject.transform.parent.gameObject);
+		} else {
+			this.activeBottomPlatforms.Remove (gobj);
+			GameObject.Destroy (gobj);
+		}
 	}
 	
-	public void RemoveTopPlatform(GameObject tp){
-		this.activeTopPlatforms.Remove (tp);
-		GameObject.Destroy (tp);
+	public void RemoveTopPlatform(GameObject gobj){
+		if (gobj.gameObject.transform.parent) {
+			this.activeTopPlatforms.Remove (gobj.gameObject.transform.parent.gameObject);
+			GameObject.Destroy (gobj.gameObject.transform.parent.gameObject);
+		} else {
+			this.activeTopPlatforms.Remove (gobj);
+			GameObject.Destroy (gobj);
+		}
 	}
-	public void RemoveLeftPlatform(GameObject lp){
-		this.activeLeftPlatforms.Remove (lp);
-		GameObject.Destroy (lp);
+	public void RemoveLeftPlatform(GameObject gobj){
+		if (gobj.gameObject.transform.parent) {
+			this.activeLeftPlatforms.Remove (gobj.gameObject.transform.parent.gameObject);
+			GameObject.Destroy (gobj.gameObject.transform.parent.gameObject);
+		} else {
+			this.activeLeftPlatforms.Remove (gobj);
+			GameObject.Destroy (gobj);
+		};
 	}
-	public void RemoveRightPlatform(GameObject rp){
-		this.activeRightPlatforms.Remove (rp);
-		GameObject.Destroy (rp);
+	public void RemoveRightPlatform(GameObject gobj){
+		if (gobj.gameObject.transform.parent) {
+			this.activeRightPlatforms.Remove (gobj.gameObject.transform.parent.gameObject);
+			GameObject.Destroy (gobj.gameObject.transform.parent.gameObject);
+		} else {
+			this.activeRightPlatforms.Remove (gobj);
+			GameObject.Destroy (gobj);
+		}
 	}
 	
 	void GeneratePlatformsTest ()
@@ -91,29 +111,30 @@ public class Spawner : MonoBehaviour {
 		int np = difficulty; 
 		int p = 4 - difficulty; 
 		if (this.activeBottomPlatforms.Count == 0) {
-			GameObject x = (GameObject)GameObject.Instantiate (this.PathPlatforms [0], new Vector3 (14, 0, 0), Quaternion.identity);
+			GameObject x = (GameObject)GameObject.Instantiate (this.PathPlatforms [0], new Vector3 (0, 0, 0), Quaternion.identity);
 			x.tag = bottomPlatformTag;
 //			x.gameObject.tag = "BottomPlatform";
 			this.activeBottomPlatforms.Add (x);
 		}
 		if (this.activeLeftPlatforms.Count == 0) {
 			Quaternion leftRotate = Quaternion.AngleAxis (90, Vector3.left);
-			GameObject x = (GameObject)GameObject.Instantiate (this.PathPlatforms [0], new Vector3 (14, 3, 3.5f), leftRotate);
+			GameObject x = (GameObject)GameObject.Instantiate (this.PathPlatforms [0], new Vector3 (0, 3, 3.5f), leftRotate);
 			x.tag = leftPlatformTag;
 //			x.gameObject.tag = "LeftPlatform";
 			this.activeLeftPlatforms.Add (x);
 		}
 		if (this.activeTopPlatforms.Count == 0) {
 			Quaternion topRotate = Quaternion.AngleAxis(180, Vector3.left);
-			GameObject x = (GameObject)GameObject.Instantiate (this.PathPlatforms [0], new Vector3 (14, 6.5f, 0), topRotate);
+			GameObject x = (GameObject)GameObject.Instantiate (this.PathPlatforms [0], new Vector3 (0, 6.5f, 0), topRotate);
 			//x.gameObject.tag = "TopPlatform";
 			x.tag = topPlatformTag;
 			this.activeTopPlatforms.Add (x);
 		}
 		if (this.activeRightPlatforms.Count == 0) {
 			Quaternion rightRotate = Quaternion.AngleAxis (-90, Vector3.left);
-			GameObject x = (GameObject)GameObject.Instantiate (this.PathPlatforms [0], new Vector3 (14, 3, -3.5f), rightRotate);
+			GameObject x = (GameObject)GameObject.Instantiate (this.PathPlatforms [0], new Vector3 (0, 3, -3.5f), rightRotate);
 			//x.gameObject.tag = "RightPlatform";
+
 			x.tag = rightPlatformTag;
 			this.activeRightPlatforms.Add (x);
 		}

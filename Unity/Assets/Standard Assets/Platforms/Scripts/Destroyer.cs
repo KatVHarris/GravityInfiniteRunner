@@ -4,14 +4,15 @@ using System.Collections;
 public class Destroyer : MonoBehaviour {
 
 	public GameObject PlatformController; 
-	private Spawner controllerScript; 
+	private Spawner platformControllerScript;  
 
 	// Use this for initialization
 	void Start () {
 		gameObject.tag = "Smelly";
 	}
 	public void Awake(){
-		controllerScript = PlatformController.GetComponent<Spawner> ();
+		//controllerScript = PlatformController.GetComponent<TestSpawner> ();
+		platformControllerScript = PlatformController.GetComponent<Spawner> (); 
 	}
 
 	// Update is called once per frame
@@ -21,24 +22,32 @@ public class Destroyer : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 		Debug.Log ("Destroyer tag: " + gameObject.tag);
+		//controllerScript.RemoveBox (other.gameObject);
+		string collideTag = "";
 		Debug.Log ("ran into... " + other.gameObject.tag);
-		if(other.tag == "Player"){
+		if (other.gameObject.transform.parent) {
+						collideTag = other.gameObject.transform.parent.tag;
+				} else {
+						collideTag = other.tag;
+				}
+		if(collideTag == "Player"){
 			Debug.Break();
 		}
-		if (other.gameObject.tag == "BottomPlatform") {
-			controllerScript.RemoveBottomPlatform(other.gameObject);
+
+		if (collideTag == "BottomPlatform") {
+			platformControllerScript.RemoveBottomPlatform(other.gameObject);
 			Debug.Log("Trying to Destroy Bottom");
 		}
-		if (other.tag == "TopPlatform") {
-			controllerScript.RemoveTopPlatform(other.gameObject);
+		if (collideTag == "TopPlatform") {
+			platformControllerScript.RemoveTopPlatform(other.gameObject);
 			Debug.Log("Trying to Destroy Top");
 		}
-		if (other.tag == "RightPlatform") {
-			controllerScript.RemoveRightPlatform(other.gameObject);
+		if (collideTag == "RightPlatform") {
+			platformControllerScript.RemoveRightPlatform(other.gameObject);
 			Debug.Log("Trying to Destroy Right");
 		}
-		if (other.tag == "LeftPlatform") {
-			controllerScript.RemoveLeftPlatform(other.gameObject);
+		if (collideTag == "LeftPlatform") {
+			platformControllerScript.RemoveLeftPlatform(other.gameObject);
 			Debug.Log("Trying to Destroy Left");
 		}
 
@@ -51,6 +60,6 @@ public class Destroyer : MonoBehaviour {
 			//Destroy(other.gameObject);
 //		}
 
-		//controllerScript.RemovePlatform (other.gameObject);
+		//controllerScript.RemovePlatform (other.gameObject);*/
 	}
 }
