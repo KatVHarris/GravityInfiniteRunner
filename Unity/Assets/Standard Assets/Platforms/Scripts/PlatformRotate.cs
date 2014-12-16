@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class PlatformRotate : MonoBehaviour {
@@ -47,13 +47,13 @@ public class PlatformRotate : MonoBehaviour {
 
 
 		//	angle = getNextLeft(angle);
-			angle = getNextLeftAngle(angle);
 		//	RotatePlatform(angle);
 			Debug.Log("ANGLE: "+ angle);
 
 			
 			if(!rotating) {
 				//angle = getNextLeft(angle);
+				angle = getNextLeftAngle(angle);
 				StartCoroutine(RotateMe(angle));
 			}
 
@@ -64,14 +64,15 @@ public class PlatformRotate : MonoBehaviour {
 		if(Input.GetKeyUp(KeyCode.E)){
 			
 			 
-
+			Debug.Log("rotating " + rotating);
 			//angle = getNextRight(angle);
-			angle = getNextRightAngle(angle);
+
 			//RotatePlatform(angle);
 
 
 			Debug.Log("ANGLE: "+ angle);
 			if(!rotating) {
+				angle = getNextRightAngle(angle);
 				StartCoroutine(RotateMe(angle));
 			}
 
@@ -79,11 +80,13 @@ public class PlatformRotate : MonoBehaviour {
 
 		if(Input.GetKeyUp("space")){
 			
-			angle = getNextFlip(angle); 
-
-			Debug.Log("rotating " + rotating + " next step "+ angle);
+			Debug.Log("rotating " + rotating );
 			if(!rotating) {
-				StartCoroutine(RotateMe(angle));
+				angle = getNextFlip(angle); 
+				Debug.Log("FLIP ANGLE: " + angle);
+
+				//RotatePlatform(angle);
+				StartCoroutine(FlipMe(angle));
 			}
 		}
 	}
@@ -104,6 +107,12 @@ public class PlatformRotate : MonoBehaviour {
 		return oAngle; 
 	}
 
+	float getNextFlip (float oAngle)
+	{
+		oAngle = oAngle + 180; 
+		return oAngle; 
+	}
+	
 	float getNextRightAngle (float oAngle)
 	{
 		oAngle = oAngle - 90; 
@@ -121,14 +130,28 @@ public class PlatformRotate : MonoBehaviour {
 		}
 	}
 
-	float getNextFlip (float angle)
-	{
-		throw new System.NotImplementedException ();
-	}
+
 
 	private void RotatePlatform(float nextAngle){
-		transform.rotation = Quaternion.Euler (new Vector3(0, 0, nextAngle));	
+		transform.rotation = Quaternion.AngleAxis(nextAngle, Vector3.forward);	
+		rotating = false; 
 	}
+
+	IEnumerator FlipMe (float nextstep)
+	{
+		rotating = true; 
+		float step = 232 * Time.smoothDeltaTime;
+		Quaternion fromAngle = transform.rotation;
+		Quaternion newRotation = Quaternion.Euler (new Vector3(0, 0, nextstep));	
+
+		while (transform.rotation != newRotation) {//the original angle from the input key dot with 90 degree < !=  0 
+			transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotation, step);
+				yield return null;
+		}
+		rotating = false; 
+		Debug.Log ("Rotate Done: " + rotating);	
+			
+		}
 
 	IEnumerator RotateMe(float nextstep) {
 		//if (rotating)		return; 
@@ -137,6 +160,7 @@ public class PlatformRotate : MonoBehaviour {
 		Quaternion fromAngle = transform.rotation;
 		Quaternion newRotation = Quaternion.Euler (new Vector3(0, 0, nextstep));	
 		while(transform.rotation != newRotation){//the original angle from the input key dot with 90 degree < !=  0 
+			Debug.Log("z coordinates: " + transform.rotation.z);
 			transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, step);//newRotation;
 			yield return null;
 
