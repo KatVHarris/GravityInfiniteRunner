@@ -156,12 +156,12 @@ public class PlatformRotate : MonoBehaviour {
 	IEnumerator RotateMe(float nextstep) {
 		//if (rotating)		return; 
 		rotating = true; 
-		float step = 45 * Time.deltaTime;
+		float step = 500 * Time.smoothDeltaTime;
 		Quaternion fromAngle = transform.rotation;
 		Quaternion newRotation = Quaternion.Euler (new Vector3(0, 0, nextstep));	
 		while(transform.rotation != newRotation){//the original angle from the input key dot with 90 degree < !=  0 
 			Debug.Log("z coordinates: " + transform.rotation.z);
-			transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, step);//newRotation;
+			transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotation, step);//newRotation;
 			yield return null;
 
 		}
