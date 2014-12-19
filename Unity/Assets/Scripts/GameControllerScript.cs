@@ -3,23 +3,26 @@ using System.Collections;
 
 public class GameControllerScript : MonoBehaviour {
 
-	public GUIText scoreText; 
+	public GUITest guiObject; 
 	private int score; 
 	// Use this for initialization
 	void Start () {
+		Game GUIGameObject = GameObject.FindWithTag("GUI");
 		score = 0;
-		//UpdateScore();
+		guiObject = GUIGameObject.GetComponent<GUITest>();
+		UpdateScore();
+
 	}
 	
 	// Update is called once per frame
 	void UpdateScore () {
-		//scoreText.text = "Score: " +score;
+		guiObject.UpdatePrintedScore("Score: " ,score);
 
 	}
 
 	public void AddScore(int newScore){
 		Debug.Log("Trying to Add Score");
-		//score += newScore;
-		//UpdateScore();
+		score += newScore;
+		UpdateScore();
 	}
 }
