@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 728af756769270a42b2525b8b69c857a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
+  guiObject: {fileID: 0}
 --- !u!114 &698558567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,6 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3a9c02ef262f54e8d8c195d90c60d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreGUI: 
 --- !u!4 &698558568
 Transform:
   m_ObjectHideFlags: 0

@@ -7,16 +7,16 @@ public class GameControllerScript : MonoBehaviour {
 	private int score; 
 	// Use this for initialization
 	void Start () {
-		Game GUIGameObject = GameObject.FindWithTag("GUI");
+//		Game GUIGameObject = GameObject.FindWithTag("GUI");
 		score = 0;
-		guiObject = GUIGameObject.GetComponent<GUITest>();
+//		guiObject = GUIGameObject.GetComponent<GUITest>();
 		UpdateScore();
 
 	}
 	
 	// Update is called once per frame
 	void UpdateScore () {
-		guiObject.UpdatePrintedScore("Score: " ,score);
+//		guiObject.UpdatePrintedScore("Score: " ,score);
 
 	}
 
