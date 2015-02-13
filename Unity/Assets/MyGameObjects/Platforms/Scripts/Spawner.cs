@@ -50,41 +50,33 @@ public class Spawner : MonoBehaviour {
 	}
 	
 	public void RemoveBottomPlatform(GameObject gobj){
-		if (gobj.gameObject.transform.parent) {
-			this.activeBottomPlatforms.Remove (gobj.gameObject.transform.parent.gameObject);
-			GameObject.Destroy (gobj.gameObject.transform.parent.gameObject);
-		} else {
+
 			this.activeBottomPlatforms.Remove (gobj);
 			GameObject.Destroy (gobj);
-		}
+
 	}
 	
 	public void RemoveTopPlatform(GameObject gobj){
+		/*
 		if (gobj.gameObject.transform.parent) {
 			this.activeTopPlatforms.Remove (gobj.gameObject.transform.parent.gameObject);
 			GameObject.Destroy (gobj.gameObject.transform.parent.gameObject);
-		} else {
+		} else {*/
 			this.activeTopPlatforms.Remove (gobj);
 			GameObject.Destroy (gobj);
-		}
+
 	}
 	public void RemoveLeftPlatform(GameObject gobj){
-		if (gobj.gameObject.transform.parent) {
-			this.activeLeftPlatforms.Remove (gobj.gameObject.transform.parent.gameObject);
-			GameObject.Destroy (gobj.gameObject.transform.parent.gameObject);
-		} else {
+
 			this.activeLeftPlatforms.Remove (gobj);
 			GameObject.Destroy (gobj);
-		};
+
 	}
 	public void RemoveRightPlatform(GameObject gobj){
-		if (gobj.gameObject.transform.parent) {
-			this.activeRightPlatforms.Remove (gobj.gameObject.transform.parent.gameObject);
-			GameObject.Destroy (gobj.gameObject.transform.parent.gameObject);
-		} else {
+
 			this.activeRightPlatforms.Remove (gobj);
 			GameObject.Destroy (gobj);
-		}
+
 	}
 	
 	void GeneratePlatformsTest ()

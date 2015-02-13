@@ -8,7 +8,7 @@ public class Destroyer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		gameObject.tag = "Smelly";
+
 	}
 	public void Awake(){
 		//controllerScript = PlatformController.GetComponent<TestSpawner> ();
@@ -21,18 +21,15 @@ public class Destroyer : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
-		Debug.Log ("Destroyer tag: " + gameObject.tag);
+
 		//controllerScript.RemoveBox (other.gameObject);
-		string collideTag = "";
-		Debug.Log ("ran into... " + other.gameObject.tag);
-		if (other.gameObject.transform.parent) {
-						collideTag = other.gameObject.transform.parent.tag;
-				} else {
-						collideTag = other.tag;
-				}
+		string collideTag = other.tag;
+
 		if(collideTag == "Player"){
 			Debug.Break();
 		}
+
+		Debug.Log ("ran into... " + other.gameObject.tag);
 
 		if (collideTag == "BottomPlatform") {
 			platformControllerScript.RemoveBottomPlatform(other.gameObject);
@@ -50,6 +47,8 @@ public class Destroyer : MonoBehaviour {
 			platformControllerScript.RemoveLeftPlatform(other.gameObject);
 			Debug.Log("Trying to Destroy Left");
 		}
+
+
 
 //		if(other.gameObject.transform.parent){
 //			Destroy(other.gameObject.transform.parent.gameObject);
