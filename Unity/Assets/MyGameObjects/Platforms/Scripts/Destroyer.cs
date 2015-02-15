@@ -1,13 +1,13 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Destroyer : MonoBehaviour {
 
 	public GameObject PlatformController; 
 	private Spawner platformControllerScript;  
-
 	// Use this for initialization
 	void Start () {
+	
 
 	}
 	public void Awake(){
@@ -26,29 +26,28 @@ public class Destroyer : MonoBehaviour {
 		string collideTag = other.tag;
 
 		if(collideTag == "Player"){
-			Debug.Break();
+
 		}
 
-		Debug.Log ("ran into... " + other.gameObject.tag);
 
 		if (collideTag == "BottomPlatform") {
 			platformControllerScript.RemoveBottomPlatform(other.gameObject);
-			Debug.Log("Trying to Destroy Bottom");
+			GameController.score += 1; 
 		}
 		if (collideTag == "TopPlatform") {
 			platformControllerScript.RemoveTopPlatform(other.gameObject);
-			Debug.Log("Trying to Destroy Top");
+			GameController.score += 1;
 		}
 		if (collideTag == "RightPlatform") {
 			platformControllerScript.RemoveRightPlatform(other.gameObject);
-			Debug.Log("Trying to Destroy Right");
+			GameController.score += 1; 
 		}
 		if (collideTag == "LeftPlatform") {
 			platformControllerScript.RemoveLeftPlatform(other.gameObject);
-			Debug.Log("Trying to Destroy Left");
+			GameController.score += 1; 
 		}
 
-
+		//ADD CODE TO HANDLE ENEMIES
 
 //		if(other.gameObject.transform.parent){
 //			Destroy(other.gameObject.transform.parent.gameObject);

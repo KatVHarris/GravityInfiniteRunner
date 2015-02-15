@@ -148,7 +148,7 @@ GameObject:
   - 222: {fileID: 201442874}
   - 114: {fileID: 201442873}
   m_Layer: 5
-  m_Name: Text
+  m_Name: ScoreTextUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -244,6 +244,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5400000, guid: 7508e6819507cd94787dd4fe05201376, type: 2}
       propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7508e6819507cd94787dd4fe05201376, type: 2}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1533,8 +1537,8 @@ GameObject:
   - 65: {fileID: 1724565690}
   - 23: {fileID: 1724565689}
   - 114: {fileID: 1724565694}
-  - 114: {fileID: 1724565693}
   - 54: {fileID: 1724565695}
+  - 114: {fileID: 1724565693}
   m_Layer: 0
   m_Name: Destroyer
   m_TagString: Untagged
@@ -1723,7 +1727,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 226967113}
   m_GameObject: {fileID: 1791205915}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee9bebb3e8cf26e40b9a8c36276b7757, type: 3}
   m_Name: 
@@ -2007,6 +2011,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1853873827}
+  - 114: {fileID: 1853873828}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -2026,6 +2031,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
+--- !u!114 &1853873828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1853873826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2052d80192809574695371daf07abd32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1908887437
 GameObject:
   m_ObjectHideFlags: 0

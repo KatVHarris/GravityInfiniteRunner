@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ContactDestroyer : MonoBehaviour {
 
-	public GameObject explosion;
+/*	public GameObject explosion;
 	public GameControllerScript gameController; 
 
 	public int scoreValue; 
@@ -38,4 +38,6 @@ public class ContactDestroyer : MonoBehaviour {
 		Destroy(other.gameObject);
 		Destroy(gameObject);
 	}
+
+	*/
 }

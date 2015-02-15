@@ -34,17 +34,17 @@ public class Spawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		if (activeBottomPlatforms.Count < 6)
+		if (activeBottomPlatforms.Count < 8)
 			this.GeneratePlatforms ();
 		
 		
-		if (activeLeftPlatforms.Count < 6)
+		if (activeLeftPlatforms.Count < 8)
 			this.GeneratePlatforms ();
 		
-		if (activeTopPlatforms.Count < 6)
+		if (activeTopPlatforms.Count < 8)
 			this.GeneratePlatforms ();
 		
-		if (activeRightPlatforms.Count < 6)
+		if (activeRightPlatforms.Count < 8)
 			this.GeneratePlatforms ();
 		
 	}
