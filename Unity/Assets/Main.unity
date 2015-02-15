@@ -248,6 +248,26 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 7508e6819507cd94787dd4fe05201376, type: 2}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 7508e6819507cd94787dd4fe05201376, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 7508e6819507cd94787dd4fe05201376, type: 2}
+      propertyPath: rotationRange.x
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 7508e6819507cd94787dd4fe05201376, type: 2}
+      propertyPath: rotationRange.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 7508e6819507cd94787dd4fe05201376, type: 2}
+      propertyPath: autoZeroHorizontalOnMobile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 7508e6819507cd94787dd4fe05201376, type: 2}
+      propertyPath: autoZeroVerticalOnMobile
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1679,6 +1699,10 @@ Prefab:
       propertyPath: m_Name
       value: Cube
       objectReference: {fileID: 0}
+    - target: {fileID: 2300398, guid: 4501b9abd8c381a498978a2a37ecf762, type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4501b9abd8c381a498978a2a37ecf762, type: 2}
   m_RootGameObject: {fileID: 1011414924}
@@ -1727,7 +1751,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 226967113}
   m_GameObject: {fileID: 1791205915}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee9bebb3e8cf26e40b9a8c36276b7757, type: 3}
   m_Name: 
@@ -1755,7 +1779,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 226967113}
   m_GameObject: {fileID: 1791205915}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cadd54e4832aeef4b9359f44cbe335cd, type: 3}
   m_Name: 
@@ -2291,11 +2315,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cadd54e4832aeef4b9359f44cbe335cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationRange: {x: 170, y: 0}
+  rotationRange: {x: 180, y: 180}
   rotationSpeed: 5
   dampingTime: .100000001
   autoZeroVerticalOnMobile: 1
-  autoZeroHorizontalOnMobile: 0
+  autoZeroHorizontalOnMobile: 1
   relative: 1
 --- !u!81 &1996074525
 AudioListener:
