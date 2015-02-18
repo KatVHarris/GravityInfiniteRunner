@@ -29,7 +29,7 @@ public class Destroyer : MonoBehaviour {
 
 		}
 
-
+		Debug.Log ("Collision object: " + collideTag);
 		if (collideTag == "BottomPlatform") {
 			platformControllerScript.RemoveBottomPlatform(other.gameObject);
 			GameController.score += 1; 
