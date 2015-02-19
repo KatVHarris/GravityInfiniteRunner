@@ -12,6 +12,12 @@ public class TestSpawner : MonoBehaviour {
 	public List<GameObject> activeLeftPlatforms;
 	public List<GameObject> activeTopPlatforms;
 	public List<GameObject> activeRightPlatforms;
+
+	//waitlist
+	public List<GameObject> bottomWaitList;
+	public List<GameObject> leftWaitList;
+	public List<GameObject> topWaitList;
+	public List<GameObject> rightWiatList;
 	
 	private string bottomPlatformTag = "BottomPlatform";
 	private string topPlatformTag = "TopPlatform";
@@ -59,20 +65,51 @@ public class TestSpawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (!(TestPlatformRotate.rotating)) {
 
+						if (bottomWaitList.Count > 0) {
+								foreach (GameObject plat in bottomWaitList) {
+										plat.transform.parent = roatatorObject.transform; 
+								}
+				bottomWaitList.Clear();
 
+						}
+		
 
-		if (activeBottomPlatforms.Count < 8)
+						if (leftWaitList.Count > 0) {
+				foreach (GameObject plat in leftWaitList) {
+					plat.transform.parent = roatatorObject.transform; 
+				}
+				leftWaitList.Clear();
+						}
+
+						if (topWaitList.Count > 0) {
+				foreach (GameObject plat in topWaitList) {
+					plat.transform.parent = roatatorObject.transform; 
+					//topWaitList.Remove(plat);
+				}
+				topWaitList.Clear();
+						}
+
+						if (rightWiatList.Count > 0) {
+				foreach (GameObject plat in rightWiatList) {
+					plat.transform.parent = roatatorObject.transform; 
+				}
+				rightWiatList.Clear();
+						}
+		}
+
+		if (activeBottomPlatforms.Count <= 4 )
 			this.CreatePlatforms ();
 		
-		
-		if (activeLeftPlatforms.Count < 8)
+
+		if (activeLeftPlatforms.Count <= 4)
 			this.CreatePlatforms ();
 		
-		if (activeTopPlatforms.Count < 8)
+		if (activeTopPlatforms.Count <= 4)
 			this.CreatePlatforms ();
 		
-		if (activeRightPlatforms.Count < 8)
+		if (activeRightPlatforms.Count <= 4)
 			this.CreatePlatforms ();
 
 	}
@@ -336,41 +373,138 @@ public class TestSpawner : MonoBehaviour {
 		GameObject z = (GameObject)GameObject.Instantiate (this.NoPathPlatforms [platformType], new Vector3 (xpos, ypos, lastzVector.z + 14f), rq);
 		z.gameObject.tag = tagname;
 
-		//z.transform.parent = this.transform;
 
-		roatatorObject = GameObject.Find ("Rotator");
+		
+		
 
-		//ROTATION SEPERATED
-		z.transform.parent = roatatorObject.transform; 
-		if(tagname.Equals(bottomPlatformTag))
-			this.activeBottomPlatforms.Add (z);
-		if (tagname.Equals(rightPlatformTag))
-			this.activeRightPlatforms.Add (z);
-		if(tagname.Equals(topPlatformTag))
-			this.activeTopPlatforms.Add(z);
-		if (tagname.Equals(leftPlatformTag))
-			this.activeLeftPlatforms.Add (z);
+
+		if (tagname.Equals (bottomPlatformTag)) {
+			if (!TestPlatformRotate.rotating) {
+				roatatorObject = GameObject.Find ("Rotator");
+				this.activeBottomPlatforms.Add (z);
+
+				//ROTATION SEPERATED
+				z.transform.parent = roatatorObject.transform; 
+			} else {
+				z.transform.parent = this.transform;
+				this.bottomWaitList.Add(z);
+				this.activeBottomPlatforms.Add (z);
+
+			}
+		}
+		if (tagname.Equals (rightPlatformTag)) {
+			if (!TestPlatformRotate.rotating) {
+				roatatorObject = GameObject.Find ("Rotator");
+				this.activeRightPlatforms.Add (z);
+
+				//ROTATION SEPERATED
+				z.transform.parent = roatatorObject.transform; 
+			} else {
+				z.transform.parent = this.transform;
+				this.rightWiatList.Add(z);
+				this.activeRightPlatforms.Add (z);
+
+			}
+		}
+		if (tagname.Equals (topPlatformTag)) {
+			if (!TestPlatformRotate.rotating) {
+				roatatorObject = GameObject.Find ("Rotator");
+				this.activeTopPlatforms.Add(z);
+
+				//ROTATION SEPERATED
+				z.transform.parent = roatatorObject.transform; 
+			} else {
+				z.transform.parent = this.transform;
+				this.topWaitList.Add(z);
+				this.activeTopPlatforms.Add(z);
+
+			}
+		}
+		if (tagname.Equals (leftPlatformTag)) {
+			if (!TestPlatformRotate.rotating) {
+				roatatorObject = GameObject.Find ("Rotator");
+				this.activeLeftPlatforms.Add(z);
+				
+				//ROTATION SEPERATED
+				z.transform.parent = roatatorObject.transform; 
+			} else {
+				z.transform.parent = this.transform;
+				this.leftWaitList.Add(z);
+				this.activeLeftPlatforms.Add(z);
+
+			}
+		}
 	}
 	
 	void CreatePathPlatform( string tagname, float xpos, float ypos, Vector3 lastzVector, Quaternion rq){
-		int platformType = ((int)Random.value) % this.PathPlatforms.Count; 
+				int platformType = ((int)Random.value) % this.PathPlatforms.Count; 
 
-		GameObject x = (GameObject)GameObject.Instantiate (this.PathPlatforms [platformType], new Vector3 (xpos, ypos, lastzVector.z + 14f), rq);
-		x.gameObject.tag = tagname;
-		//x.transform.parent = this.transform;
-		roatatorObject = GameObject.Find ("Rotator");
+				GameObject x = (GameObject)GameObject.Instantiate (this.PathPlatforms [platformType], new Vector3 (xpos, ypos, lastzVector.z + 14f), rq);
+				x.gameObject.tag = tagname;
+				//x.transform.parent = this.transform;
+				//roatatorObject = GameObject.Find ("Rotator");
 
-		//ROTATION SEPERATED
-		x.transform.parent = roatatorObject.transform; 
+				//ROTATION SEPERATED
+				//	x.transform.parent = roatatorObject.transform; 
 
-		if(tagname.Equals(bottomPlatformTag))
-			this.activeBottomPlatforms.Add (x);
-		if (tagname.Equals(rightPlatformTag))
-			this.activeRightPlatforms.Add (x);
-		if(tagname.Equals(topPlatformTag))
-			this.activeTopPlatforms.Add(x);
-		if (tagname.Equals(leftPlatformTag))
-			this.activeLeftPlatforms.Add (x);
-	}
+				if (tagname.Equals (bottomPlatformTag)) {
+						if (!TestPlatformRotate.rotating) {
+								roatatorObject = GameObject.Find ("Rotator");
+								this.activeBottomPlatforms.Add (x);
+
+								//ROTATION SEPERATED
+								x.transform.parent = roatatorObject.transform; 
+						} else {
+								x.transform.parent = this.transform;
+				this.activeBottomPlatforms.Add(x);
+								this.bottomWaitList.Add (x);
+						}
+				} else {
+						if (tagname.Equals (rightPlatformTag)) {
+								if (!TestPlatformRotate.rotating) {
+										roatatorObject = GameObject.Find ("Rotator");
+										this.activeRightPlatforms.Add (x);
+				
+										//ROTATION SEPERATED
+										x.transform.parent = roatatorObject.transform; 
+								} else {
+										x.transform.parent = this.transform;
+										this.rightWiatList.Add (x);
+					this.activeRightPlatforms.Add (x);
+
+								}
+						} else {
+								if (tagname.Equals (topPlatformTag)) {
+										if (!TestPlatformRotate.rotating) {
+												roatatorObject = GameObject.Find ("Rotator");
+												this.activeTopPlatforms.Add (x);
+				
+												//ROTATION SEPERATED
+												x.transform.parent = roatatorObject.transform; 
+										} else {
+												x.transform.parent = this.transform;
+												this.topWaitList.Add (x);
+						this.activeTopPlatforms.Add (x);
+
+										}
+								} else {
+										if (tagname.Equals (leftPlatformTag)) {
+												if (!TestPlatformRotate.rotating) {
+														roatatorObject = GameObject.Find ("Rotator");
+														this.activeLeftPlatforms.Add (x);
+				
+														//ROTATION SEPERATED
+														x.transform.parent = roatatorObject.transform; 
+												} else {
+														x.transform.parent = this.transform;
+														this.leftWaitList.Add (x);
+							this.activeLeftPlatforms.Add (x);
+
+												}
+										}
+								}
+						}
+				}
+		}
 
 }

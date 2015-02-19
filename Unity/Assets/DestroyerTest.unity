@@ -283,6 +283,10 @@ MonoBehaviour:
   activeLeftPlatforms: []
   activeTopPlatforms: []
   activeRightPlatforms: []
+  bottomWaitList: []
+  leftWaitList: []
+  topWaitList: []
+  rightWiatList: []
   leftPlatAdjustment: -3.5
   rightPlatAdjustment: 3.5
   topPlatAdjustment: 3
@@ -816,7 +820,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347f1029aeb8bf64d8e9db60ed3287da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlatformController: {fileID: 345844850}
 --- !u!23 &1050812526
 Renderer:
   m_ObjectHideFlags: 0
@@ -879,7 +882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836ebbcd686834a4d8d2d30bfda76922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardspeed: 6
+  forwardspeed: 3
 --- !u!54 &1050812531
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1003,6 +1006,10 @@ MonoBehaviour:
   activeLeftPlatforms: []
   activeTopPlatforms: []
   activeRightPlatforms: []
+  bottomWaitList: []
+  leftWaitList: []
+  topWaitList: []
+  rightWiatList: []
   leftPlatAdjustment: -3.5
   rightPlatAdjustment: 3.5
   topPlatAdjustment: 3
@@ -1183,6 +1190,10 @@ MonoBehaviour:
   activeLeftPlatforms: []
   activeTopPlatforms: []
   activeRightPlatforms: []
+  bottomWaitList: []
+  leftWaitList: []
+  topWaitList: []
+  rightWiatList: []
   leftPlatAdjustment: -3.5
   rightPlatAdjustment: 3.5
   topPlatAdjustment: 3
