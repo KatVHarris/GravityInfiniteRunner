@@ -520,6 +520,10 @@ Prefab:
       propertyPath: m_Name
       value: Cube
       objectReference: {fileID: 0}
+    - target: {fileID: 199036, guid: cc4b6b2ef3098f04da6802b3ccf7c6ef, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc4b6b2ef3098f04da6802b3ccf7c6ef, type: 2}
   m_RootGameObject: {fileID: 1212998553}
@@ -729,7 +733,6 @@ MonoBehaviour:
   - {fileID: 122370, guid: 9c38ffeaf81b32c4f97732c65a28b811, type: 2}
   NoPathPlatforms:
   - {fileID: 100398, guid: 4501b9abd8c381a498978a2a37ecf762, type: 2}
-  - {fileID: 100004, guid: 354296e3a756c9a489d829d533bb0f2c, type: 2}
   activeBottomPlatforms: []
   activeLeftPlatforms: []
   activeTopPlatforms: []
@@ -813,13 +816,14 @@ GameObject:
   - 65: {fileID: 903264323}
   - 23: {fileID: 903264322}
   - 54: {fileID: 903264326}
+  - 114: {fileID: 903264327}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &903264322
 Renderer:
   m_ObjectHideFlags: 0
@@ -890,6 +894,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &903264327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11450178, guid: 9c38ffeaf81b32c4f97732c65a28b811,
+    type: 2}
+  m_PrefabInternal: {fileID: 1289589352}
+  m_GameObject: {fileID: 903264321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d356a2ae671d640bb2057421891124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backspeed: 3
 --- !u!1 &1011414924
 GameObject:
   m_ObjectHideFlags: 0
@@ -902,13 +919,14 @@ GameObject:
   - 65: {fileID: 1011414926}
   - 23: {fileID: 1011414925}
   - 54: {fileID: 1011414929}
+  - 114: {fileID: 1011414930}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1011414925
 Renderer:
   m_ObjectHideFlags: 0
@@ -979,6 +997,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1011414930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11420282, guid: 4501b9abd8c381a498978a2a37ecf762,
+    type: 2}
+  m_PrefabInternal: {fileID: 1739166341}
+  m_GameObject: {fileID: 1011414924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d356a2ae671d640bb2057421891124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backspeed: 3
 --- !u!1 &1071328502
 GameObject:
   m_ObjectHideFlags: 0
@@ -1266,7 +1297,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1212998554
 Renderer:
   m_ObjectHideFlags: 0
@@ -1363,6 +1394,10 @@ Prefab:
     - target: {fileID: 122370, guid: 9c38ffeaf81b32c4f97732c65a28b811, type: 2}
       propertyPath: m_Name
       value: Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 122370, guid: 9c38ffeaf81b32c4f97732c65a28b811, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c38ffeaf81b32c4f97732c65a28b811, type: 2}
@@ -1640,7 +1675,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1724565688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -51.4000015}
+  m_LocalPosition: {x: 0, y: 0, z: -14}
   m_LocalScale: {x: 13.9015884, y: 14.6382065, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1663,7 +1698,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1724565688}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 836ebbcd686834a4d8d2d30bfda76922, type: 3}
   m_Name: 
@@ -1730,6 +1765,10 @@ Prefab:
     - target: {fileID: 2300398, guid: 4501b9abd8c381a498978a2a37ecf762, type: 2}
       propertyPath: m_CastShadows
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100398, guid: 4501b9abd8c381a498978a2a37ecf762, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4501b9abd8c381a498978a2a37ecf762, type: 2}
@@ -1913,7 +1952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836ebbcd686834a4d8d2d30bfda76922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardspeed: 6
+  forwardspeed: 3
 --- !u!1 &1797525109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1931,7 +1970,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1797525110
 Renderer:
   m_ObjectHideFlags: 0
@@ -2448,6 +2487,10 @@ Prefab:
     - target: {fileID: 196312, guid: ce929db14a5316a41b37018d573809cc, type: 2}
       propertyPath: m_Name
       value: Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 196312, guid: ce929db14a5316a41b37018d573809cc, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce929db14a5316a41b37018d573809cc, type: 2}
