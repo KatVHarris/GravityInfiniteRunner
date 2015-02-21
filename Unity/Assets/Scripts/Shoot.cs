@@ -17,7 +17,7 @@ public class Shoot : MonoBehaviour {
 	GameObject go;
 
 	private bool isDay, isHomingMove;
-	private float prefabSpeed = 10;
+	private float prefabSpeed = 25f;
 	private bool isReadyEffect= true; 
 	private bool isReadyDefaulBall;
 	Color originalMaterial;
