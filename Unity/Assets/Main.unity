@@ -18,7 +18,7 @@ RenderSettings:
   m_FogDensity: .00999999978
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientLight: {r: 1, g: .838235259, b: .838235259, a: 1}
+  m_AmbientLight: {r: .694852948, g: .75, b: .729462445, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 5aab239cac7fe8a4c931693a7535da5c, type: 2}
   m_HaloStrength: .5
   m_FlareStrength: 1
@@ -400,7 +400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 1
   shotSpawn: {fileID: 515530914}
-  shot: {fileID: 100004, guid: 75ab6367e45cfd54ea341dd9232c5505, type: 2}
+  shot: {fileID: 175584, guid: f25c0eda7beaf2a4dbf9be5a8818d0a1, type: 2}
 --- !u!114 &237251296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,7 +532,7 @@ Transform:
   m_Children:
   - {fileID: 810370255}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!114 &353106812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1038,10 +1038,18 @@ MonoBehaviour:
   activeLeftPlatforms: []
   activeTopPlatforms: []
   activeRightPlatforms: []
+  NPBottomPlatforms: []
+  NPLeftPlatforms: []
+  NPTopPlatforms: []
+  NPRightPlatforms: []
+  PathBottomPlatforms: []
+  PathLeftPlatforms: []
+  PathTopPlatforms: []
+  PathRightPlatforms: []
   leftPlatAdjustment: -3.5
   rightPlatAdjustment: 3.5
-  topPlatAdjustment: 3
-  botPlatAdjustment: -3
+  topPlatAdjustment: 3.5
+  botPlatAdjustment: -3.5
 --- !u!1 &828888722
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,7 +1223,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 828888722}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 836ebbcd686834a4d8d2d30bfda76922, type: 3}
   m_Name: 
@@ -1561,6 +1569,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11406388, guid: 342b95c43ec3ad14ab94549c324bf03d, type: 2}
+      propertyPath: shot
+      value: 
+      objectReference: {fileID: 175584, guid: f25c0eda7beaf2a4dbf9be5a8818d0a1, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 342b95c43ec3ad14ab94549c324bf03d, type: 2}
   m_RootGameObject: {fileID: 828888722}
@@ -2508,7 +2520,7 @@ Transform:
   - {fileID: 1181885039}
   - {fileID: 1585469054}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!114 &1791205917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2645,7 +2657,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1791205915}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 836ebbcd686834a4d8d2d30bfda76922, type: 3}
   m_Name: 

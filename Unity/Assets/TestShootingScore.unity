@@ -349,6 +349,10 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11406388, guid: 342b95c43ec3ad14ab94549c324bf03d, type: 2}
+      propertyPath: shot
+      value: 
+      objectReference: {fileID: 175584, guid: f25c0eda7beaf2a4dbf9be5a8818d0a1, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 342b95c43ec3ad14ab94549c324bf03d, type: 2}
   m_RootGameObject: {fileID: 1942829746}
@@ -430,7 +434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 1
   shotSpawn: {fileID: 1553540278}
-  shot: {fileID: 100004, guid: 75ab6367e45cfd54ea341dd9232c5505, type: 2}
+  shot: {fileID: 175584, guid: f25c0eda7beaf2a4dbf9be5a8818d0a1, type: 2}
 --- !u!114 &436001716
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -29,6 +29,13 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _Detail
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
           name: _Cube
         second:
           m_Texture: {fileID: 8900000, guid: 65a7d442f1932344384c29c6fecc89c6, type: 2}
@@ -39,13 +46,6 @@ Material:
           name: _Spec_Gloss_Reflec_Masks
         second:
           m_Texture: {fileID: 2800000, guid: d33960b2624dfe94c84c41e02a55cf76, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Detail
-        second:
-          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -86,16 +86,16 @@ Material:
         second: 0
       data:
         first:
-          name: _ReflectionStrength
-        second: .400000006
-      data:
-        first:
           name: _Density
         second: .0970149264
       data:
         first:
           name: _Bounds
         second: 1
+      data:
+        first:
+          name: _ReflectionStrength
+        second: .400000006
       data:
         first:
           name: _ReflectPower

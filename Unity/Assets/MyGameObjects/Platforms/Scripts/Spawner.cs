@@ -11,6 +11,16 @@ public class Spawner : MonoBehaviour {
 	public List<GameObject> activeLeftPlatforms;
 	public List<GameObject> activeTopPlatforms;
 	public List<GameObject> activeRightPlatforms;
+
+    public List<GameObject> NPBottomPlatforms;
+    public List<GameObject> NPLeftPlatforms;
+    public List<GameObject> NPTopPlatforms;
+    public List<GameObject> NPRightPlatforms;
+
+    public List<GameObject> PathBottomPlatforms;
+    public List<GameObject> PathLeftPlatforms;
+    public List<GameObject> PathTopPlatforms;
+    public List<GameObject> PathRightPlatforms;
 	
 	private string bottomPlatformTag = "BottomPlatform";
 	private string topPlatformTag = "TopPlatform";
