@@ -4,14 +4,27 @@ using System.Collections.Generic;
 
 public class Spawner : MonoBehaviour {
 	
-	public List<GameObject> PathPlatforms;
+//	public List<GameObject> PathPlatforms;
 	public List<GameObject> NoPathPlatforms;
-	
+
+
+    public List<GameObject> PathBottomPlatforms;
+    public List<GameObject> PathLeftPlatforms;
+    public List<GameObject> PathTopPlatforms;
+    public List<GameObject> PathRightPlatforms;
+
+
+    public List<GameObject> NPBottomPlatforms;
+    public List<GameObject> NPLeftPlatforms;
+    public List<GameObject> NPTopPlatforms;
+    public List<GameObject> NPRightPlatforms;
+
+
 	public List<GameObject> activeBottomPlatforms;
 	public List<GameObject> activeLeftPlatforms;
 	public List<GameObject> activeTopPlatforms;
 	public List<GameObject> activeRightPlatforms;
-	
+
 	private string bottomPlatformTag = "BottomPlatform";
 	private string topPlatformTag = "TopPlatform";
 	private string leftPlatformTag = "LeftPlatform";
@@ -79,57 +92,35 @@ public class Spawner : MonoBehaviour {
 
 	}
 	
-	void GeneratePlatformsTest ()
-	{
-		float val = Random.value; //will it be path or no path
-		Vector3 lastBotPlatPos = this.activeBottomPlatforms [this.activeBottomPlatforms.Count - 1].transform.position;
-		if (val < .5) {
-			//Debug.Log ("np before adding platform: ");
-			int platformType = ((int)Random.value) % this.NoPathPlatforms.Count; 
-			GameObject x = (GameObject)GameObject.Instantiate (this.NoPathPlatforms [platformType], new Vector3 (lastBotPlatPos.x + 14, 0, 0), Quaternion.identity);
-			x.tag = "BottomPlatform";
-			this.activeBottomPlatforms.Add (x);
-			//Debug.Log("np after addition: ");
-			
-		}
-		else {
-			int platformType = ((int)Random.value) % this.PathPlatforms.Count; 
-			GameObject x = (GameObject)GameObject.Instantiate (this.PathPlatforms [platformType], new Vector3 (lastBotPlatPos.x + 14, 0, 0), Quaternion.identity);
-			x.tag = "BottomPlatform";
-			this.activeBottomPlatforms.Add (x);
-			//this.activeBottomPlatforms.Add (
-			//	(GameObject)GameObject.Instantiate (this.NoPathPlatforms [platformType], new Vector3 (lastBotPlatPos.x + 14, 0, 0), Quaternion.identity));
-		} 
-		
-	}
+
 	
 	void GeneratePlatforms ()
 	{
 		int np = difficulty; 
 		int p = 4 - difficulty; 
 		if (this.activeBottomPlatforms.Count == 0) {
-			GameObject x = (GameObject)GameObject.Instantiate (this.PathPlatforms [0], new Vector3 (0, -3f, 0), Quaternion.identity);
+			GameObject x = (GameObject)GameObject.Instantiate (this.PathBottomPlatforms [0], new Vector3 (0, -3f, 0), Quaternion.identity);
 			x.tag = bottomPlatformTag;
 //			x.gameObject.tag = "BottomPlatform";
 			this.activeBottomPlatforms.Add (x);
 		}
 		if (this.activeLeftPlatforms.Count == 0) {
 			Quaternion leftRotate = Quaternion.AngleAxis (90, Vector3.forward);
-			GameObject x = (GameObject)GameObject.Instantiate (this.PathPlatforms [0], new Vector3 (-3f,0f, 0), leftRotate);
+			GameObject x = (GameObject)GameObject.Instantiate (this.PathLeftPlatforms [0], new Vector3 (-3f,0f, 0), leftRotate);
 			x.tag = leftPlatformTag;
 //			x.gameObject.tag = "LeftPlatform";
 			this.activeLeftPlatforms.Add (x);
 		}
 		if (this.activeTopPlatforms.Count == 0) {
 			Quaternion topRotate = Quaternion.AngleAxis(180, Vector3.forward);
-			GameObject x = (GameObject)GameObject.Instantiate (this.PathPlatforms [0], new Vector3 (0, 3f, 0), topRotate);
+			GameObject x = (GameObject)GameObject.Instantiate (this.PathTopPlatforms [0], new Vector3 (0, 3f, 0), topRotate);
 			//x.gameObject.tag = "TopPlatform";
 			x.tag = topPlatformTag;
 			this.activeTopPlatforms.Add (x);
 		}
 		if (this.activeRightPlatforms.Count == 0) {
 			Quaternion rightRotate = Quaternion.AngleAxis (-90, Vector3.forward);
-			GameObject x = (GameObject)GameObject.Instantiate (this.PathPlatforms [0], new Vector3 (3f, 0, 0), rightRotate);
+			GameObject x = (GameObject)GameObject.Instantiate (this.PathRightPlatforms [0], new Vector3 (3f, 0, 0), rightRotate);
 			//x.gameObject.tag = "RightPlatform";
 
 			x.tag = rightPlatformTag;
@@ -143,8 +134,8 @@ public class Spawner : MonoBehaviour {
 				case 0:
 					nametag = bottomPlatformTag; 
 					float val = Random.value; //will it be path or no path
-					Vector3 lastBotPlatPos = this.activeTopPlatforms [this.activeTopPlatforms.Count - 1].transform.position;
-					Quaternion noRotate = Quaternion.identity;
+					Vector3 lastBotPlatPos = this.activeBottomPlatforms [this.activeBottomPlatforms.Count - 1].transform.position;
+					Quaternion noRotate = this.activeBottomPlatforms [this.activeBottomPlatforms.Count - 1].transform.rotation; //Quaternion.identity;
 					if (val < .5) {
 						if (np > 0) {
 							np = np - 1;
@@ -154,18 +145,15 @@ public class Spawner : MonoBehaviour {
 							x.tag = "BottomPlatform";
 												this.activeBottomPlatforms.Add (x);*/
 						} else {
-							CreatePathPlatform(nametag, 0, botPlatAdjustment, lastBotPlatPos, noRotate);
-							/*							int platformType = ((int)Random.value) % this.PathPlatforms.Count; 
-							GameObject x = (GameObject)GameObject.Instantiate (this.PathPlatforms [platformType], new Vector3 (lastBotPlatPos.x + 14, 0, 0), Quaternion.identity);
-							x.tag = "BottomPlatform";
-							this.activeBottomPlatforms.Add (x);
-*/
+						//	CreatePathPlatform(nametag, 0, botPlatAdjustment, lastBotPlatPos, noRotate);
 							p = p - 1;
+
+
 						}
 					} else {
 						if (p > 0) {
 							p = p - 1;
-							CreatePathPlatform(nametag, 0, botPlatAdjustment, lastBotPlatPos, noRotate);
+                            CreatePathPlatform(nametag, GrabPathPlatormBottom(nametag, 0, botPlatAdjustment, lastBotPlatPos, noRotate));
 							/*int platformType = ((int)Random.value) % this.PathPlatforms.Count; 
 							GameObject x = (GameObject)GameObject.Instantiate (this.PathPlatforms [platformType], new Vector3 (lastBotPlatPos.x + 14, 0, 0), Quaternion.identity);
 							x.tag = "BottomPlatform";
@@ -188,7 +176,7 @@ public class Spawner : MonoBehaviour {
 					
 					float leftval = Random.value; //will it be path or no path
 					Vector3 lastLeftPlatPos =  this.activeLeftPlatforms [this.activeLeftPlatforms.Count - 1].transform.position;; 
-					Quaternion leftRotate = Quaternion.AngleAxis (90, Vector3.forward);
+					Quaternion leftRotate = this.activeLeftPlatforms [this.activeLeftPlatforms.Count - 1].transform.rotation; ////Quaternion.AngleAxis (90, Vector3.forward);
 					if (leftval < .5) {
 						if (np > 0) {
 							CreateNoPathPlatform(nametag, leftPlatAdjustment, 0, lastLeftPlatPos, leftRotate);
@@ -201,7 +189,7 @@ public class Spawner : MonoBehaviour {
 							*/
 						} else {
 							p = p - 1;
-							CreatePathPlatform(nametag, leftPlatAdjustment, 0, lastLeftPlatPos, leftRotate);
+							//CreatePathPlatform(nametag, leftPlatAdjustment, 0, lastLeftPlatPos, leftRotate);
 							/*int platformType = ((int)Random.value) % this.PathPlatforms.Count; 
 							//this.activeLeftPlatforms.Add (
 							//	(GameObject)GameObject.Instantiate (this.PathPlatforms [platformType], new Vector3 (lastLeftPlatPos.x + 14, 3, 3.5f), leftRotate));
@@ -212,7 +200,7 @@ public class Spawner : MonoBehaviour {
 					} else {
 						if (p > 0) {
 							p = p - 1;
-							CreatePathPlatform(nametag, leftPlatAdjustment, 0, lastLeftPlatPos, leftRotate);
+                            CreatePathPlatform(nametag, GrabPathPlatormBottom(nametag, leftPlatAdjustment, 0, lastLeftPlatPos, leftRotate));
 							
 							/*int platformType = ((int)Random.value) % this.PathPlatforms.Count; 
 							//this.activeLeftPlatforms.Add (
@@ -241,7 +229,7 @@ public class Spawner : MonoBehaviour {
 					//				Debug.Log ("Top random val: " + topval); 
 					
 					Vector3 lastTopPlatPos = this.activeTopPlatforms [this.activeTopPlatforms.Count - 1].transform.position;
-					Quaternion topRotate = Quaternion.AngleAxis (180, Vector3.forward);
+					Quaternion topRotate = this.activeTopPlatforms [this.activeTopPlatforms.Count - 1].transform.rotation; //Quaternion.AngleAxis (180, Vector3.forward);
 					if (topval < .5) {
 						if (np > 0) {
 							np = np - 1;
@@ -255,7 +243,7 @@ public class Spawner : MonoBehaviour {
 							this.activeTopPlatforms.Add (x);*/
 						} else {
 							p = p - 1;
-							CreatePathPlatform(nametag, 0, topPlatAdjustment, lastTopPlatPos, topRotate);
+                            CreatePathPlatform(nametag, GrabPathPlatformTop(nametag, 0, topPlatAdjustment, lastTopPlatPos, topRotate));
 							
 							/*int platformType = ((int)Random.value) % this.PathPlatforms.Count; 
 							//this.activeTopPlatforms.Add (
@@ -268,7 +256,7 @@ public class Spawner : MonoBehaviour {
 					} else {
 						if (p > 0) {
 							p = p - 1;
-							CreatePathPlatform(nametag, 0, topPlatAdjustment, lastTopPlatPos, topRotate);
+                            CreatePathPlatform(nametag, GrabPathPlatformTop(nametag, 0, topPlatAdjustment, lastTopPlatPos, topRotate));
 							/*
 							int platformType = ((int)Random.value) % this.PathPlatforms.Count; 
 							//this.activeTopPlatforms.Add (
@@ -298,7 +286,7 @@ public class Spawner : MonoBehaviour {
 					float rightval = Random.value; //will it be path or no path
 					//						Debug.Log ("Right side random val: " + rightval); 
 					Vector3 lastRightPlatPos = this.activeRightPlatforms [this.activeRightPlatforms.Count - 1].transform.position;
-					Quaternion rightRotate = Quaternion.AngleAxis (-90, Vector3.forward);
+					Quaternion rightRotate = this.activeRightPlatforms [this.activeRightPlatforms.Count - 1].transform.rotation; //Quaternion.AngleAxis (-90, Vector3.forward);
 					if (rightval < .5) {
 						if (np > 0) {
 							//			Debug.Log ("np before adding platform: " +np);
@@ -314,7 +302,7 @@ public class Spawner : MonoBehaviour {
 							this.activeRightPlatforms.Add (x);*/
 						} else {
 							p = p - 1;
-							CreatePathPlatform(nametag, rightPlatAdjustment, 0, lastRightPlatPos, rightRotate);
+                            CreatePathPlatform(nametag, GrabPathPlatformRight(nametag, rightPlatAdjustment, 0, lastRightPlatPos, rightRotate));
 							
 							/*
 							int platformType = ((int)Random.value) % this.PathPlatforms.Count; 
@@ -327,7 +315,7 @@ public class Spawner : MonoBehaviour {
 					} else {
 						if (p > 0) {
 							p = p - 1;
-							CreatePathPlatform(nametag, rightPlatAdjustment, 0, lastRightPlatPos, rightRotate);
+                            CreatePathPlatform(nametag, GrabPathPlatformRight(nametag, rightPlatAdjustment, 0, lastRightPlatPos, rightRotate));
 							/*
 							int platformType = ((int)Random.value) % this.PathPlatforms.Count; 
 							//this.activeRightPlatforms.Add (
@@ -362,9 +350,10 @@ public class Spawner : MonoBehaviour {
 	void CreateNoPathPlatform (string tagname, float xpos , float ypos, Vector3 lastzVector, Quaternion rq)
 	{
 		int platformType = ((int)Random.value) % this.NoPathPlatforms.Count; 
-		GameObject z = (GameObject)GameObject.Instantiate (this.NoPathPlatforms [platformType], new Vector3 (xpos, ypos, lastzVector.z + 14f), rq);
+		GameObject z = (GameObject)GameObject.Instantiate (this.NoPathPlatforms [platformType], new Vector3 (lastzVector.x, lastzVector.y, lastzVector.z + 14f), rq); //changed xpos and ypos
 		z.gameObject.tag = tagname;
 		z.transform.parent = this.transform;
+		//z.transform.rotation = rq; //Possible reset it to fix problem?
 
 		if(tagname.Equals(bottomPlatformTag))
 			this.activeBottomPlatforms.Add (z);
@@ -376,9 +365,9 @@ public class Spawner : MonoBehaviour {
 						this.activeLeftPlatforms.Add (z);
 	}
 	
-	void CreatePathPlatform( string tagname, float xpos, float ypos, Vector3 lastzVector, Quaternion rq){
-		int platformType = ((int)Random.value) % this.PathPlatforms.Count; 
-		GameObject x = (GameObject)GameObject.Instantiate (this.PathPlatforms [platformType], new Vector3 (xpos, ypos, lastzVector.z + 14f), rq);
+	void CreatePathPlatform( string tagname,/* float xpos, float ypos, Vector3 lastzVector, Quaternion rq,*/ GameObject x){
+//		int platformType = ((int)Random.value) % this.PathPlatforms.Count; 
+//		GameObject x = (GameObject)GameObject.Instantiate (this.PathPlatforms [platformType], new Vector3 (lastzVector.x, lastzVector.y, lastzVector.z + 14f), rq);
 		x.gameObject.tag = tagname;
 		x.transform.parent = this.transform;
 		if(tagname.Equals(bottomPlatformTag))
@@ -390,5 +379,30 @@ public class Spawner : MonoBehaviour {
 		if (tagname.Equals(leftPlatformTag))
 			this.activeLeftPlatforms.Add (x);
 	}
-	
+    public GameObject GrabPathPlatformLeft(string tagname, float xpos, float ypos, Vector3 lastzVector, Quaternion rq) 
+    {
+        int platformType = ((int)Random.value) % this.PathLeftPlatforms.Count;
+        GameObject x = (GameObject)GameObject.Instantiate(this.PathLeftPlatforms[platformType], new Vector3(lastzVector.x, lastzVector.y, lastzVector.z + 14f), rq);
+        return x; 
+    }
+    public GameObject GrabPathPlatformRight(string tagname, float xpos, float ypos, Vector3 lastzVector, Quaternion rq)
+    {
+        int platformType = ((int)Random.value) % this.PathRightPlatforms.Count;
+        GameObject x = (GameObject)GameObject.Instantiate(this.PathRightPlatforms[platformType], new Vector3(lastzVector.x, lastzVector.y, lastzVector.z + 14f), rq);
+        return x; 
+    }
+
+    public GameObject GrabPathPlatformTop(string tagname, float xpos, float ypos, Vector3 lastzVector, Quaternion rq)
+    {
+        int platformType = ((int)Random.value) % this.PathTopPlatforms.Count;
+        GameObject x = (GameObject)GameObject.Instantiate(this.PathTopPlatforms[platformType], new Vector3(lastzVector.x, lastzVector.y, lastzVector.z + 14f), rq);
+        return x ; 
+    }
+
+    public GameObject GrabPathPlatormBottom(string tagname, float xpos, float ypos, Vector3 lastzVector, Quaternion rq)
+    {
+        int platformType = ((int)Random.value) % this.PathBottomPlatforms.Count;
+        GameObject x = (GameObject)GameObject.Instantiate(this.PathBottomPlatforms[platformType], new Vector3(lastzVector.x, lastzVector.y, lastzVector.z + 14f), rq);
+        return x; 
+    }
 }
