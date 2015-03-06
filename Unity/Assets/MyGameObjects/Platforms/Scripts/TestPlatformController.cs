@@ -52,11 +52,11 @@ public class TestPlatformController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		spawnerObject = GameObject.Find ("PlatformSpawner");
-		spawner = spawnerObject.GetComponent<TestSpawner> ();
-		for (int i = 0; i<4; i++) {
-			spawner.GeneratePlatformsTest ();
-		}
+        //spawnerObject = GameObject.Find ("PlatformSpawner");
+        //spawner = spawnerObject.GetComponent<TestSpawner> ();
+        //for (int i = 0; i<4; i++) {
+        //    spawner.GeneratePlatformsTest ();
+        //}
 	}
 	
 	// Update is called once per frame

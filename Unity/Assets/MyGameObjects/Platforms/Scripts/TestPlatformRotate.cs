@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class TestPlatformRotate : MonoBehaviour {
-	public static bool rotating = false; 
+/*	public static bool rotating = false; 
 	public float rotationAngle  = 0; 
 	private Quaternion curAngle; 
 	public float targetAngle = 0f; 
@@ -152,6 +152,6 @@ public class TestPlatformRotate : MonoBehaviour {
 		rotating = false; 
 		Debug.Log ("Rotate Done: " + rotating);
 	}
-	
+	*/
 	
 }

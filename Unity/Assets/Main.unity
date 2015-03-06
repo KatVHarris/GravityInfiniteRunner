@@ -73,6 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
+    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1 &112618470
 GameObject:
@@ -878,8 +879,8 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignoreReversedGraphics: 1
-  blockingObjects: 0
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1027,25 +1028,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 810370254}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad49d08f2bbc0f841817cc96ebeea701, type: 3}
+  m_Script: {fileID: 11500000, guid: 07606748c6b31544daaad02f5c3e2ef0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PathPlatforms:
   - {fileID: 122370, guid: 9c38ffeaf81b32c4f97732c65a28b811, type: 2}
   NoPathPlatforms:
   - {fileID: 100398, guid: 4501b9abd8c381a498978a2a37ecf762, type: 2}
+  PathBottomPlatforms:
+  - {fileID: 122370, guid: 9c38ffeaf81b32c4f97732c65a28b811, type: 2}
+  PathLeftPlatforms:
+  - {fileID: 122370, guid: 9c38ffeaf81b32c4f97732c65a28b811, type: 2}
+  PathTopPlatforms:
+  - {fileID: 122370, guid: 9c38ffeaf81b32c4f97732c65a28b811, type: 2}
+  PathRightPlatforms:
+  - {fileID: 122370, guid: 9c38ffeaf81b32c4f97732c65a28b811, type: 2}
+  NPBottomPlatforms:
+  - {fileID: 196312, guid: ce929db14a5316a41b37018d573809cc, type: 2}
+  NPLeftPlatforms:
+  - {fileID: 185554, guid: 523bd51b192bc3146b2336c27c26fc8c, type: 2}
+  NPTopPlatforms:
+  - {fileID: 196312, guid: ce929db14a5316a41b37018d573809cc, type: 2}
+  NPRightPlatforms:
+  - {fileID: 185554, guid: 523bd51b192bc3146b2336c27c26fc8c, type: 2}
   activeBottomPlatforms: []
   activeLeftPlatforms: []
   activeTopPlatforms: []
   activeRightPlatforms: []
-  NPBottomPlatforms: []
-  NPLeftPlatforms: []
-  NPTopPlatforms: []
-  NPRightPlatforms: []
-  PathBottomPlatforms: []
-  PathLeftPlatforms: []
-  PathTopPlatforms: []
-  PathRightPlatforms: []
   leftPlatAdjustment: -3.5
   rightPlatAdjustment: 3.5
   topPlatAdjustment: 3.5
