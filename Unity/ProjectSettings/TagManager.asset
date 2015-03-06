@@ -3,14 +3,16 @@
 --- !u!78 &1
 TagManager:
   tags:
-  - AlarmLight
+  - Item
+  - Dangerous
+  - Smelly
+  - Fire
+  - BottomPlatform
+  - TopPlatform
+  - LeftPlatform
+  - RightPlatform
+  - ball
   - Enemy
-  - MainLight
-  - Fader
-  - WayPoint
-  - Siren
-  - 
-  - Alarm
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -20,12 +22,12 @@ TagManager:
   Builtin Layer 5: UI
   Builtin Layer 6: 
   Builtin Layer 7: 
-  User Layer 8: PlayArea
-  User Layer 9: Extents
-  User Layer 10: BottomPlatform
-  User Layer 11: TopPlatform
-  User Layer 12: RightPlatform
-  User Layer 13: LeftPlatform
+  User Layer 8: Vehicles
+  User Layer 9: Characters
+  User Layer 10: Floor
+  User Layer 11: 
+  User Layer 12: 
+  User Layer 13: 
   User Layer 14: 
   User Layer 15: 
   User Layer 16: 
@@ -48,4 +50,20 @@ TagManager:
   - name: Default
     userID: 0
     uniqueID: 0
+    locked: 0
+  - name: Background
+    userID: 1
+    uniqueID: 1093696345
+    locked: 0
+  - name: Foreground
+    userID: 2
+    uniqueID: 1859086223
+    locked: 0
+  - name: Characters
+    userID: 3
+    uniqueID: 3940858523
+    locked: 0
+  - name: UI
+    userID: 4
+    uniqueID: 771169021
     locked: 0

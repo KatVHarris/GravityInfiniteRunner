@@ -4,16 +4,17 @@ using System.Collections;
 public class Destroyer : MonoBehaviour {
 
 	public GameObject PlatformController; 
-	private Spawner platformControllerScript;  
-	// Use this for initialization
-	void Start () {
+	//private Spawner platformControllerScript;
+    private TestSpawner platformControllerScript;
+    // Use this for initialization
+    void Start () {
 	
 
 	}
 	public void Awake(){
-		//controllerScript = PlatformController.GetComponent<TestSpawner> ();
-		platformControllerScript = PlatformController.GetComponent<Spawner> (); 
-	}
+		//platformControllerScript = PlatformController.GetComponent<Spawner> ();
+        platformControllerScript = PlatformController.GetComponent<TestSpawner>();
+    }
 
 	// Update is called once per frame
 	void Update () {
