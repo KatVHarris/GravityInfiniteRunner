@@ -11,13 +11,18 @@ public class PlayerHealthController : MonoBehaviour
 //	public AudioClip deathClip;     //Implement Later           // The audio clip to play when the player dies.
 	public float flashSpeed = 5f;                               // The speed the damageImage will fade at.
 	public Color flashColour = new Color(1f, 0f, 0f, 0.1f);     // The colour the damageImage is set to, to flash.
-	
-	
-	Animator anim;                                              // Reference to the Animator component.
-	AudioSource playerAudio;                                    // Reference to the AudioSource component.
-//	PlayerMovement playerMovement; //Code disabling movement    // Reference to the player's movement.
-//	PlayerShooting playerShooting;                              // Reference to the PlayerShooting script.
-	bool isDead;                                                // Whether the player is dead.
+
+    public static bool instantDeath = false; 
+	Animator anim;
+    // Reference to the Animator component.
+    //	AudioSource playerAudio;                                    // Reference to the AudioSource component.
+
+    //	PlayerMovement playerMovement; //Code disabling movement    // Reference to the player's movement.
+    //	PlayerShooting playerShooting;                              // Reference to the PlayerShooting script.
+
+
+    FirstPersonCharacter firstPersonCharacter; 
+    bool isDead;                                                // Whether the player is dead.
 	bool damaged;                                               // True when the player gets damaged.
 	
 	
@@ -25,6 +30,7 @@ public class PlayerHealthController : MonoBehaviour
 	{
 		// Setting up the references.
 		anim = GetComponent <Animator> ();
+        
 //		playerAudio = GetComponent <AudioSource> ();
 //		playerMovement = GetComponent <PlayerMovement> ();
 //		playerShooting = GetComponentInChildren <PlayerShooting> ();
@@ -66,7 +72,7 @@ public class PlayerHealthController : MonoBehaviour
 		healthSlider.value = currentHealth;
 		
 		// Play the hurt sound effect.
-		playerAudio.Play ();
+		//playerAudio.Play ();
 		
 		// If the player has lost all it's health and the death flag hasn't been set yet...
 		if(currentHealth <= 0 && !isDead)
@@ -77,10 +83,12 @@ public class PlayerHealthController : MonoBehaviour
 	}
 	
 	
-	void Death ()
+	public void Death ()
 	{
-		// Set the death flag so this function won't be called again.
+        // Set the death flag so this function won't be called again.
+        currentHealth = 0; 
 		isDead = true;
+
 /*
 		// Turn off any remaining shooting effects.
 		playerShooting.DisableEffects ();
@@ -95,5 +103,5 @@ public class PlayerHealthController : MonoBehaviour
 		// Turn off the movement and shooting scripts.
 		playerMovement.enabled = false;
 		playerShooting.enabled = false;*/
-	}      
+    }      
 }

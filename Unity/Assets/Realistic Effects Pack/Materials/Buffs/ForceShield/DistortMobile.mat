@@ -19,14 +19,14 @@ Material:
         second:
           m_Texture: {fileID: 2800000, guid: f9bb0fc00d645b74a9f69161d166cbc6, type: 3}
           m_Scale: {x: .125, y: .25}
-          m_Offset: {x: .125, y: 1}
+          m_Offset: {x: .875, y: .25}
       data:
         first:
           name: _BumpMap
         second:
           m_Texture: {fileID: 2800000, guid: 7e82099c6d278ce45aed04a5ada461c9, type: 3}
           m_Scale: {x: .125, y: .25}
-          m_Offset: {x: .125, y: 1}
+          m_Offset: {x: .875, y: .25}
       data:
         first:
           name: _CutoutTex
@@ -64,20 +64,20 @@ Material:
         second: .857142925
       data:
         first:
-          name: _ColorStrength
-        second: 1
-      data:
-        first:
-          name: _BumpAmt
-        second: 23.2142849
-      data:
-        first:
           name: _FPOW
         second: 4.13999987
       data:
         first:
           name: _R0
         second: .0500000007
+      data:
+        first:
+          name: _ColorStrength
+        second: 1
+      data:
+        first:
+          name: _BumpAmt
+        second: 23.2142849
       data:
         first:
           name: _Height
